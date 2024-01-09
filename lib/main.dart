@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
       onWillPop: () async {
         final difference = DateTime.now().difference(timeBackPressed);
         timeBackPressed = DateTime.now();
-        final isExitWarning = difference >= Duration(seconds: 2);
+        final isExitWarning = difference >= const Duration(seconds: 2);
 
         if (await inAppWebViewController.canGoBack()) {
           inAppWebViewController.goBack();
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               InAppWebView(
                 initialUrlRequest: URLRequest(
-                  url: WebUri('https://beta.aqarmodon.com'),
+                  url: WebUri('https://naptechgames.com'),
                 ),
                 onWebViewCreated: (controller) {
                   inAppWebViewController = controller;
@@ -104,12 +104,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               progressVal < 1
-                  ? Container(
-                      child: LinearProgressIndicator(
-                        value: progressVal,
-                      ),
+                  ? LinearProgressIndicator(
+                      value: progressVal,
                     )
-                  : SizedBox.shrink(),
+                  : const SizedBox.shrink(),
             ],
           ),
         ),
