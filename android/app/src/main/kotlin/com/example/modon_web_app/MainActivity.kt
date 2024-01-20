@@ -1,4 +1,4 @@
-package com.example.modon_web_app
+package com.naptechgames.play.simple.online.fun.games
 
 import io.flutter.embedding.android.FlutterActivity
 
