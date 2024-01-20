@@ -61,29 +61,41 @@ class _MyHomePageState extends State<MyHomePage> {
     //   ..loadRequest(Uri.parse('https://beta.aqarmodon.com'));
   }
 
+  canPopFunction() async {
+    final difference = DateTime.now().difference(timeBackPressed);
+    timeBackPressed = DateTime.now();
+    final isExitWarning = difference >= const Duration(seconds: 2);
+
+    if (await inAppWebViewController.canGoBack()) {
+      inAppWebViewController.goBack();
+
+      return false;
+    } else {
+      if (isExitWarning) {
+        const message = 'Press back again to exit';
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text(
+          message,
+        )));
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        final difference = DateTime.now().difference(timeBackPressed);
-        timeBackPressed = DateTime.now();
-        final isExitWarning = difference >= const Duration(seconds: 2);
-
-        if (await inAppWebViewController.canGoBack()) {
-          inAppWebViewController.goBack();
-
-          return false;
-        } else {
-          if (isExitWarning) {
-            const message = 'Press back again to exit';
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                content: Text(
-              message,
-            )));
-            return false;
-          } else {
-            return true;
-          }
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (isPoped) async {
+        if (isPoped) {
+          return;
+        }
+        final navigator = Navigator.of(context);
+        bool value = await canPopFunction();
+        if (value) {
+          navigator.pop();
         }
       },
       child: Scaffold(
