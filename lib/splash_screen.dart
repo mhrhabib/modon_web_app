@@ -64,8 +64,8 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.white,
       body: Center(
         child: isInternet
-            ? Lottie.asset('assets/laoderanimation.json')
-            : Lottie.asset('assets/nointernet.json'),
+            ? Lottie.asset('assets/Animation - 1704799112756.json')
+            : Lottie.asset('assets/noInternet.json'),
       ),
     );
   }

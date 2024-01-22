@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'package:get/get.dart';
+import 'package:modon_web_app/splash_screen.dart';
+import 'injection/dependency_injection.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
+  DependencyInjection.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -10,13 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'The Taskly',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const SplashScreen(),
     );
   }
 }
