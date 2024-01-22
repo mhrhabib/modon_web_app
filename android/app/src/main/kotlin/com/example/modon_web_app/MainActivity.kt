@@ -1,4 +1,4 @@
-package com.example.modon_web_app
+package com.aqarmodon.modon_app
 
 import io.flutter.embedding.android.FlutterActivity
 
