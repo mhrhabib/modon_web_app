@@ -1,11 +1,9 @@
-import 'dart:ffi';
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:modon_web_app/home_page.dart';
 import 'package:modon_web_app/no_internet_screen.dart';
 
-class NetworkController extends GetxController {
+class NetworkController extends GetxController with StateMixin{
   final Connectivity _connectivity = Connectivity();
   var isInternetAvailable = true.obs;
 
