@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               InAppWebView(
                 initialUrlRequest: URLRequest(
-                  url: WebUri('https://beta.aqarmodon.com'),
+                  url: WebUri('https://hrlogisticsbd.com/login'),
                 ),
                 onWebViewCreated: (controller) {
                   inAppWebViewController = controller;
