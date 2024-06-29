@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'The Taskly',
+      title: 'Nasirabad',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
